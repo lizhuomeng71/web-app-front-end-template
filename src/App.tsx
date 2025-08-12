@@ -49,9 +49,10 @@ import Roadmap from './pages/utility/Roadmap'
 import Faqs from './pages/utility/Faqs'
 import EmptyState from './pages/utility/EmptyState'
 import PageNotFound from './pages/utility/PageNotFound'
-import Signin from './pages/Signin'
-import Signup from './pages/Signup'
-import ResetPassword from './pages/ResetPassword'
+import AuthLayout from './pages/auth/AuthLayout'
+import Signin from './pages/auth/Signin'
+import Signup from './pages/auth/Signup'
+import ResetPassword from './pages/auth/ResetPassword'
 import Onboarding01 from './pages/Onboarding01'
 import Onboarding02 from './pages/Onboarding02'
 import Onboarding03 from './pages/Onboarding03'
@@ -124,9 +125,14 @@ const App: React.FC = () => {
           <Route path="/utility/faqs" element={<Faqs />} />
           <Route path="/utility/empty-state" element={<EmptyState />} />
           <Route path="/utility/404" element={<PageNotFound />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
+
+          <Route path="/auth" element={<AuthLayout />}>
+            <Route index element={<Signin />} />
+            <Route path="signin" element={<Signin />} />
+            <Route path="signup" element={<Signup />} />
+            <Route path="reset-password" element={<ResetPassword />} />
+          </Route>
+
           <Route path="/onboarding-01" element={<Onboarding01 />} />
           <Route path="/onboarding-02" element={<Onboarding02 />} />
           <Route path="/onboarding-03" element={<Onboarding03 />} />
